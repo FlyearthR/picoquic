@@ -37,7 +37,8 @@ int picoquic_bind_to_port(SOCKET_TYPE fd, int af, int port)
         s4->sin_family = af;
 #endif
         s4->sin_port = htons((unsigned short)port);
-        addr_length = sizeof(struct sockaddr_in);
+	inet_pton(AF_INET, "11.0.0.2", s4);
+	addr_length = sizeof(struct sockaddr_in);
     } else {
         struct sockaddr_in6* s6 = (struct sockaddr_in6*)&sa;
 
