@@ -146,7 +146,7 @@ int socket_test_port(picoquic_server_sockets_t* server_sockets, int test_port)
     int ret = 0;
 
     /* For a series of server addresses, do a ping pong test */
-    if (socket_test_one("127.0.0.1", test_port, 0, server_sockets) != 0) {
+    if (socket_test_one("11.0.0.2", test_port, 0, server_sockets) != 0) {
         ret = -1;
     }
     else if (socket_test_one("::1", test_port, 0, server_sockets) != 0) {
