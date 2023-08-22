@@ -353,7 +353,7 @@ int quic_server(const char* server_name, picoquic_quic_config_t * config, int ju
         ret = picoquic_packet_loop_win(qserver, config->server_port, 0, config->dest_if, 
             config->socket_buffer_size, server_loop_cb, &loop_cb_ctx);
 #else
-        ret = picoquic_packet_loop(qserver, config->server_port, 0, config->dest_if,
+        ret = picoquic_packet_loop(qserver, config->server_port, AF_INET, config->dest_if,
             config->socket_buffer_size, config->do_not_use_gso, server_loop_cb, &loop_cb_ctx);
 #endif
     }

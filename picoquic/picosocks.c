@@ -31,6 +31,7 @@ int picoquic_bind_to_port(SOCKET_TYPE fd, int af, int port)
 
     if (af == AF_INET) {
         struct sockaddr_in* s4 = (struct sockaddr_in*)&sa;
+	inet_pton(AF_INET, "11.0.0.2", &s4->sin_addr.s_addr);
 #ifdef _WINDOWS
         s4->sin_family = (ADDRESS_FAMILY)af;
 #else
