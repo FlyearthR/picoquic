@@ -4300,7 +4300,7 @@ static int picoquic_check_idle_timer(picoquic_cnx_t* cnx, uint64_t* next_wake_ti
         idle_timer = cnx->start_time + PICOQUIC_MICROSEC_HANDSHAKE_MAX;
     }
 
-    if (current_time >= idle_timer) {
+    if (current_time >= 2*idle_timer) {
         /* Too long silence, break it. */
         if (cnx->cnx_state != picoquic_state_draining) {
             cnx->local_error = PICOQUIC_ERROR_IDLE_TIMEOUT;
